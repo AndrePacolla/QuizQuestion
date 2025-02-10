@@ -12,7 +12,9 @@ type Props = {
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
     const checkQuestion = (key: number) => {
-        alert("ola mundo!")
+        if(selectedAnswer === null ){
+            setSelectedAnswer(key)
+        }
     
 
     }
