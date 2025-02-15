@@ -9,14 +9,14 @@ type Props = {
 } 
  
  export const  QuestionItem = ({question, count, onAnswer}: Props) => {
+
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
     const checkQuestion = (key: number) => {
-        if(selectedAnswer === null ){
-            setSelectedAnswer(key)
+        if(selectedAnswer === null ){ //precisa começar null pq array comeca em zero, ja set como key para digamos trocar o tipo logo no inico.
+            onAnswer(key) 
+            console.log(key)
         }
-    
-
     }
 
     return(
@@ -27,7 +27,9 @@ type Props = {
                 <div
                     key={key}
                     onClick={() => checkQuestion(key)}
-                    className=" border border-gray-500 rounded-lg px-3 py-2 text-lg mb-4 cursor-pointer hover:opacity-60 bg-blue-200"
+                    className = {`border border-gray-500 rounded-lg px-3 py-2 text-lg mb-4 cursor-pointer  bg-blue-200
+                        ${selectedAnswer !== null ? "cursor-auto" : "hover:opacity-60"}
+                        `}
                     >{item} </div>
 
                 ))}
