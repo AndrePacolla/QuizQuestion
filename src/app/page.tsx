@@ -6,7 +6,7 @@ import { useState } from "react";
 
   const Page = () => {
 
-  const [currentQuestion, SetCurrentQuestion] = useState(0); 
+  const [currentQuestion, SetCurrentQuestion] = useState(1); 
   const title = "Quiz de Culinária";
 
   const handleAnswer = (answer: number) => {
