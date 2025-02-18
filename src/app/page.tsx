@@ -6,7 +6,7 @@ import { useState } from "react";
 
   const Page = () => {
 
-  const [currentQuestion, SetCurrentQuestion] = useState(1); 
+  const [currentQuestion, SetCurrentQuestion] = useState(0); 
   const title = "Quiz de Culinária";
 
   const handleAnswer = (answer: number) => {
@@ -23,7 +23,7 @@ import { useState } from "react";
           question = {questions[currentQuestion]}
           count={currentQuestion + 1}
           onAnswer={handleAnswer}
-          />
+          />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
          
         </div>
         <div className="p-5 text-center border-t border-gray-400 ">
@@ -34,6 +34,5 @@ import { useState } from "react";
     </div>
   );
 }
-
 
 export default Page;

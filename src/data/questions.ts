@@ -9,17 +9,17 @@ export const questions: Question[] = [
             "(C) Água",
             "(D) Açucar"
         ],
-        answer: 1
+        answer: 3
     },
     {
-        question: "Qual igrediente  pode faltar ?",
+        question: "Qual melhor método de cozinhar ?",
         options: [
-            "(A) Ovo",
-            "(B) Leite",
-            "(C) Sal",
-            "(D) Fermento"
+            "(A) Microondas",
+            "(B) Fogão",
+            "(C) Fogueira",
+            "(D) Lança-Chamas"
         ],
-        answer: 2
+        answer: 3
     }
 
 ];
