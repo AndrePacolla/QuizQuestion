@@ -24,7 +24,6 @@ import { useState } from "react";
   const handleAnswer = (answer: number) => {  // lidando com a resposta , seta array clona e passa resposta do parametro
     setAnswers([... answers, answer]);
     loadNextQuestion();
-
   }
     
   return (

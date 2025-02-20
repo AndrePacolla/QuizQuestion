@@ -15,7 +15,7 @@ type Props = {
     const checkQuestion = (key: number) => {
         if(selectedAnswer === null ){
             setSelectedAnswer(key)
-            
+
             setTimeout(() => {
                 onAnswer(key);
                 setSelectedAnswer(null);
@@ -47,3 +47,7 @@ type Props = {
         </div>
     );
 }
+
+
+
+
