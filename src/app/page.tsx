@@ -8,7 +8,7 @@ import { useState } from "react";
 
   const [answers, setAnswers] = useState<number[]>([]); // historico de respostas
   const [currentQuestion, SetCurrentQuestion] = useState(0); 
-  const [showResult, setShowresult] = useState(false);
+  const [showResult, setShowResult] = useState(false);
 
   const title = "Quiz de Culinária";
 
@@ -17,13 +17,19 @@ import { useState } from "react";
     if(questions[currentQuestion + 1]){
       SetCurrentQuestion(currentQuestion + 1);
     }else {
-      setShowresult(true);
+      setShowResult(true);
     }
 
   }
   const handleAnswer = (answer: number) => {  // lidando com a resposta , seta array clona e passa resposta do parametro
     setAnswers([... answers, answer]);
     loadNextQuestion();
+  }
+
+  const handleResetButton = () =>{
+    setAnswers([]);
+    SetCurrentQuestion(0);
+    setShowResult(false);
   }
     
   return (
@@ -44,10 +50,8 @@ import { useState } from "react";
           {showResult &&
 
           <Results questions={questions} answers={answers}/>
-          
           }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-    
+                                                                                                                                                      
         </div>
         <div className="p-5 text-center border-t border-gray-400 ">
           {!showResult &&
@@ -55,7 +59,7 @@ import { useState } from "react";
            }      
 
            {showResult &&
-            <button className= "px-5 py-3 rounded-md bg-blue-800 text-white font-bold"> Reiniciar Quiz </button>
+            <button onClick={handleResetButton} className= "px-5 py-3 rounded-md bg-blue-800 text-white font-bold"> Reiniciar Quiz </button>
            
            } 
         </div>

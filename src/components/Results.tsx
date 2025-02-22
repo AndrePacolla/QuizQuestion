@@ -1,8 +1,8 @@
 import { Question } from "@/types/Question";
 
 type Props = {
-    questions: Question[];
-    answers: number[];
+    questions: Question[];// tenho minha lista
+    answers: number[];// tenho meu historico 
 }
 
 
@@ -18,7 +18,6 @@ export const Results = ({questions, answers}: Props) => {
                         {item.options[item.answer]}
                     </div>
                 </div>
-
 
             ))}
         </div>

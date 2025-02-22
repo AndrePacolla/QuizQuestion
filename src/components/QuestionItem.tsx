@@ -24,8 +24,6 @@ type Props = {
     
     }
 
-
-
     return(
         <div>
             <div className="font-bold text-lg mt-3 mb-5"> {count}. {question.question}</div> 
