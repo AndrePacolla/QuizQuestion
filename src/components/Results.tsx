@@ -4,7 +4,7 @@ import {Question} from "@/types/Question";
 
 type Props = {
     questions: Question[];
-    answers: number[]|string[];
+    answers: number[];
 }
 
 
@@ -16,7 +16,8 @@ export const ResultsModal = ({questions, answers}: Props) => {
             {questions.map((item, key) => (
             <div key={key} className="mb-8">
                 <div className="font-bold">{key +1}. {item.question}</div>
-                <div>{item.options[item.answer]}</div>
+                <span>({item.answer === answers[key] ? "acertou" : "errou"}) </span>
+                {item.options[item.answer]}
             </div>
 
             ))}
@@ -26,7 +27,7 @@ export const ResultsModal = ({questions, answers}: Props) => {
             <h1 className="font-bold text-2xl text-red-500 mb-5">Respostas selecionadas </h1>
             {answers.map((item, key) =>(
                 <div key={key} className="mb-8">
-                    <div className="font-bold"> {item}</div>
+                    <div className="font-bold">{item}</div>
                 </div>
 
 

@@ -6,7 +6,7 @@ import { useState } from "react";
 
   const Page = () => {
   const [currentQuestion, SetCurrentQuestion] = useState(0); 
-  const [answers, setAnswers] = useState<number[]|string[]>([]);
+  const [answers, setAnswers] = useState<number[]>([]);
   const [showModal, setShowModal] = useState(false);
 
 
@@ -20,8 +20,8 @@ import { useState } from "react";
     }
   };
 
-  const handleAnswered = (item: string , answer: number) =>{
-    setAnswers([...answers, item, answer ]);
+  const handleAnswered = ( answer: number) =>{
+    setAnswers([...answers, answer ]);
     loadProxQuestion();
   };
 
