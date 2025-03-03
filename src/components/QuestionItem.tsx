@@ -1,51 +1,55 @@
-import { Question } from "@/types/Question";
 import { useState } from "react";
+import {Question} from "../types/Question";
+
 
 type Props = {
     question: Question;
     count: number;
-    onAnswer: (answer: number) => void;  //trad. ao responder 
+    onAnswer: (item: string, answer: number) => void;
+};
 
-} 
- 
- export const  QuestionItem = ({question, count, onAnswer}: Props) => {
 
-    const [selectedAnswer, setSelectedAnswer] = useState<number|null>(null);
 
-    const checkQuestion = (key: number) => {
-        if(selectedAnswer === null ){
+
+export const QuestionItem = ({ question, count, onAnswer }: Props) => {
+
+
+    const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+
+    const checkQuestion = (item: string, key: number) => {
+   
+        if(selectedAnswer === null){
             setSelectedAnswer(key)
 
             setTimeout(() => {
-                onAnswer(key);
+
+
+                onAnswer(item, key)
                 setSelectedAnswer(null);
-            },2000);
+            }, 2000)
+
         }
-    
     }
 
     return(
-        <div>
-            <div className="font-bold text-lg mt-3 mb-5"> {count}. {question.question}</div> 
-            <div>
-                {question.options.map((item, key) => (
+        <div className="p-7"> 
+            <div className="mb-7 text-2xl font-bold">{count}. {question.question}</div>
+            <div>{question.options.map((item, key) => (
                 <div
-                    key={key}
-                    onClick={() => checkQuestion(key)}
-                    className = {`border border-gray-500 mb-2 bg-blue-300 px-3 py-2 rounded-lg 
-                           ${selectedAnswer !== null ? "cursor-auto" : "cursor-pointer hover:opacity-60"}
-                           ${selectedAnswer !== null && selectedAnswer === question.answer && selectedAnswer === key && "bg-green-500 border-green-500"
-                           }
-                           ${selectedAnswer !== null && selectedAnswer !== question.answer && selectedAnswer === key && "bg-red-700 border-red-950"}
-                        `}
-                    >{item}</div>
+                 key={key}
+                 onClick={() => checkQuestion(item, key)}
+                 className={`p-5 bg-blue-300 font-bold border border-blue-500 rounded-md mb-7
+                    ${selectedAnswer !== null ? "cursor-auto" : "cursor-pointer hover:opacity-60"}
+                    ${selectedAnswer !== null && selectedAnswer === question.answer && selectedAnswer === key && "bg-green-600 " }
+                    ${selectedAnswer !== null && selectedAnswer !== question.answer && selectedAnswer === key && "bg-red-600 " }
+                    
+                    
+                `} 
+                 >{item}</div>
 
-                ))}
-            </div>
+
+            ))}</div>
         </div>
-    );
+    )
+
 }
-
-
-
-
