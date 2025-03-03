@@ -20,10 +20,11 @@ import { useState } from "react";
     }
   };
 
-  const handleAnswered = ( answer: number) =>{
-    setAnswers([...answers, answer ]);
+  const handleAnswered = ( key: number) =>{
+    setAnswers([...answers, key ]);
     loadProxQuestion();
   };
+  console.log(answers)
 
     
   return (

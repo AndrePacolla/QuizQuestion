@@ -5,7 +5,7 @@ import {Question} from "../types/Question";
 type Props = {
     question: Question;
     count: number;
-    onAnswer: (item: string, answer: number) => void;
+    onAnswer: ( key: number) => void;
 };
 
 
@@ -16,7 +16,7 @@ export const QuestionItem = ({ question, count, onAnswer }: Props) => {
 
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
-    const checkQuestion = (item: string, key: number) => {
+    const checkQuestion = (key: number) => {
    
         if(selectedAnswer === null){
             setSelectedAnswer(key)
@@ -24,7 +24,7 @@ export const QuestionItem = ({ question, count, onAnswer }: Props) => {
             setTimeout(() => {
 
 
-                onAnswer(item, key)
+                onAnswer(key)
                 setSelectedAnswer(null);
             }, 2000)
 
@@ -37,7 +37,7 @@ export const QuestionItem = ({ question, count, onAnswer }: Props) => {
             <div>{question.options.map((item, key) => (
                 <div
                  key={key}
-                 onClick={() => checkQuestion(item, key)}
+                 onClick={() => checkQuestion(key)}
                  className={`p-5 bg-blue-300 font-bold border border-blue-500 rounded-md mb-7
                     ${selectedAnswer !== null ? "cursor-auto" : "cursor-pointer hover:opacity-60"}
                     ${selectedAnswer !== null && selectedAnswer === question.answer && selectedAnswer === key && "bg-green-600 " }

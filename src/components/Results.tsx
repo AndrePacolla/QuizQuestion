@@ -29,8 +29,6 @@ export const ResultsModal = ({questions, answers}: Props) => {
                 <div key={key} className="mb-8">
                     <div className="font-bold">{item}</div>
                 </div>
-
-
             ))}
         </div>
       </>
