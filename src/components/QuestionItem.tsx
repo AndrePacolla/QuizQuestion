@@ -5,7 +5,7 @@ import {Question} from "../types/Question";
 type Props = {
     question: Question;
     count: number;
-    onAnswer: ( key: number) => void;
+    onAnswer: (key: number) => void;
 };
 
 
@@ -27,7 +27,6 @@ export const QuestionItem = ({ question, count, onAnswer }: Props) => {
                 onAnswer(key)
                 setSelectedAnswer(null);
             }, 2000)
-
         }
     }
 
@@ -42,7 +41,6 @@ export const QuestionItem = ({ question, count, onAnswer }: Props) => {
                     ${selectedAnswer !== null ? "cursor-auto" : "cursor-pointer hover:opacity-60"}
                     ${selectedAnswer !== null && selectedAnswer === question.answer && selectedAnswer === key && "bg-green-600 " }
                     ${selectedAnswer !== null && selectedAnswer !== question.answer && selectedAnswer === key && "bg-red-600 " }
-                    
                     
                 `} 
                  >{item}</div>

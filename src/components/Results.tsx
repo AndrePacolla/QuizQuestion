@@ -15,11 +15,11 @@ export const ResultsModal = ({questions, answers}: Props) => {
         <div >
             {questions.map((item, key) => (
             <div key={key} className="mb-8">
-                <div className="font-bold">{key +1}. {item.question}</div>
-                <span>({item.answer === answers[key] ? "acertou" : "errou"}) </span>
-                {item.options[item.answer]}
+                <div className="font-bold mb-3">{key +1}. {item.question}</div>
+                <span>({item.answer === answers[key] ? "Acertou" : "Errou"})- Respota correta: </span>
+                <div className="mt-4">{item.options[item.answer]}</div>
+                
             </div>
-
             ))}
                     
         </div>
@@ -27,7 +27,7 @@ export const ResultsModal = ({questions, answers}: Props) => {
             <h1 className="font-bold text-2xl text-red-500 mb-5">Respostas selecionadas </h1>
             {answers.map((item, key) =>(
                 <div key={key} className="mb-8">
-                    <div className="font-bold">{item}</div>
+                    <div className="font-bold">{questions[key].options[item]}</div>
                 </div>
             ))}
         </div>

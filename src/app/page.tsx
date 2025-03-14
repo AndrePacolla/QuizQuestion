@@ -20,16 +20,16 @@ import { useState } from "react";
     }
   };
 
-  const handleAnswered = ( key: number) =>{
-    setAnswers([...answers, key ]);
+  const handleAnswered = (key: number) =>{
+    setAnswers([...answers, key]);
     loadProxQuestion();
   };
-  console.log(answers)
+ 
 
     
   return (
     <div className="w-full h-screen flex justify-center items-center bg-blue-600">
-          <div className="w-full max-w-2xl bg-gray-100/75  border border-black rounded-lg">
+          <div className="w-full max-w-3xl bg-gray-100/75  border border-black rounded-lg">
             <h1 className=" text-black text-4xl font-bold border-gray-400  border-b-2 p-5">{title}</h1>
             <div className="border-gray-400  border-b-2 p-3">
 
@@ -56,13 +56,9 @@ import { useState } from "react";
             </div>
             }
 
-
-            
-              
-
           </div>
     </div>
-  );
+  );z
 }
 
 export default Page;  
